@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
       @user.send_activation_email
+
+      personal = 'vBso0mRNZDCRNFcvriCDy1mZ6ssdMNeV6NoNK8U9'
+      client = HipChat::Client.new(personal, :api_version => 'v2')
+      client["WynHooked"].send("@TheGinsberg", "A new user has signed up for WynHooked!", :notify => true)
+
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
@@ -38,7 +43,7 @@ class UsersController < ApplicationController
   def help
     personal = 'vBso0mRNZDCRNFcvriCDy1mZ6ssdMNeV6NoNK8U9'
     client = HipChat::Client.new(personal, :api_version => 'v2')
-    client["WynHooked"].send("@TheGinsberg", "A classmate is hooked bad and in need of immediate assistance!.", :notify => true)
+    client["WynHooked"].send("@TheGinsberg", "@all A classmate is hooked bad and in need of immediate assistance!.", :notify => true)
   end
 
   def update
