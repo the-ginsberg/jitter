@@ -17,6 +17,7 @@ gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
 gem 'sdoc',                    '0.4.0', group: :doc
 gem 'hipchat',                 '1.5.2'
+gem 'net-ssh',                 '2.10.0.beta2'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
