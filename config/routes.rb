@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'hipchat/index'
 
+  get 'users/help'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
