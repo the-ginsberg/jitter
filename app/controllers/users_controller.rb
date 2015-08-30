@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
       personal = 'vBso0mRNZDCRNFcvriCDy1mZ6ssdMNeV6NoNK8U9'
       client = HipChat::Client.new(personal, :api_version => 'v2')
-      client["WynHooked"].send("@TheGinsberg", "#{@user.name} has signed up for WynHooked!", :notify => true)
+      client["WynHooked"].send("@TheGinsberg", "Welcome #{@user.name} Memeber ##{@user.id} of WynHooked!", :notify => true)
 
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
